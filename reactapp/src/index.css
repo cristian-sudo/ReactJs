@@ -19,7 +19,8 @@ body {
 }
 @media screen and (min-width: 768px) {
   .BookList {
-    grid-template-columns: (3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
   }
 }
 .Book {
