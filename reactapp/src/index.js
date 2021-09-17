@@ -1,46 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import "./index.css";
+const Image="https://images-na.ssl-images-amazon.com/images/I/A1ITodlM7JS._AC_UL200_SR200,200_.jpg";
+const Title="Change Sings: A Children's Anthem";
+const Author="Amanda Gorman";
+
 
 function BookList(){
   return (
+
 <section className="BookList">
 <Book/>
 <Book/>
-<Book/>
-<Book/>
-<Book/>
-<Book/>
-
 </section>
+
   );
 }
 
-const Book = () =>{
+const Book = (props) =>{
+  const title="Change Sings: A Children's Anthem";
   return (
     <article className="Book">
-      <Image/>
-      <Title/>
-      <Author/>
+      <img src={Image} alt="" />
+      <h1>{Title}</h1>
+      <h4>{Author}</h4>
     </article>
   )
 }
 
-const Image = () =>{
-  return (
-    <img src="https://images-na.ssl-images-amazon.com/images/I/A1ITodlM7JS._AC_UL200_SR200,200_.jpg" alt="" />
-  )
-}
 
-const Title =()=>{
-  return (
-<h1 style={{color:"red", fontSize:"0.75rem", marginTop:"0.25rem"}}>Change Sings: A Children's Anthem</h1>
-  );
-}
-const Author =()=>{
-  return (
-<h4>Amanda Gorman</h4>
-  );
-}
+
+
+
 
 ReactDOM.render(<BookList/>, document.getElementById("root"));
