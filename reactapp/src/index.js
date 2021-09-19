@@ -11,20 +11,11 @@ const Books=[
   Author: "Amanda Gorman"
 },
   {
-     Image: "https://images-na.ssl-images-amazon.com/images/I/A1ITodlM7JS._AC_UL200_SR200,200_.jpg",
+  Image: "https://images-na.ssl-images-amazon.com/images/I/A1ITodlM7JS._AC_UL200_SR200,200_.jpg",
   Title: "Change Sings: A Children's Anthem",
   Author: "Amanda Gorman"
   }, 
 ]
-
-const names =["ion", "ossas"]
-function BookList(){
-  return (
-    <section className="BookList">
-    {names}
-    </section>
-  );
-}
 
 const Book = (props) =>{
  const {Image,Title,Author}=props
@@ -36,6 +27,22 @@ const Book = (props) =>{
     </article>
   )
 }
+const NewBooks = Books.map((name)=>{
+ return (
+ <Book Title={name.Title} Author={name.Author} Image={name.Image} />
+ 
+ )
+})
+
+function BookList(){
+  return (
+    <section className="BookList">
+      {NewBooks}
+    </section>
+  );
+}
+
+
 
 
 
