@@ -20,35 +20,45 @@ const Books=[
   }, 
 ]
 
+//An COMPONENT  that returns HTML
 const Book = (props) =>{
- const {Image,Title,Author}=props
+ const {Image,Title,Author}=props//map the props in local variables
+ const ClickHandler = (Author) =>{
+   console.log(Author);//make this event as a function because it will render once i clicked not after
+ }
   return (
     <article className="Book">
       <img src={Image} alt="" />
-      <h1>{Title}</h1>
+      <h1 onClick={()=>{console.log(Title)}}>{Title}</h1>
       <h4>{Author}</h4>
+      <button type="button" onClick={()=>ClickHandler(Author)}>Prova</button>
     </article>
   )
 }
-const NewBooks = Books.map((name)=>{
+
+
+///For each element of the list it creates a book object
+const AllBooks = Books.map((name)=>{
  return (
- <Book key={name.ID} Title={name.Title} Author={name.Author} Image={name.Image} />
+ <Book key={name.ID} Title={name.Title} Author={name.Author} Image={name.Image} />// or {...name}
  )
 })
 
+
+//The whole function that needs to be randered
 function BookList(){
   return (
     <section className="BookList">
-      {NewBooks}
+      {AllBooks}
     </section>
   );
 }
+////////////////////////////////////
 
 
 
 
 
 
-
-
+//randering the function
 ReactDOM.render(<BookList/>, document.getElementById("root"));
